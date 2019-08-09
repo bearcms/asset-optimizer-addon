@@ -1,0 +1,27 @@
+{
+    "name": "bearcms/asset-optimizer-addon",
+    "description": "Asset optimizer addon for Bear CMS",
+    "keywords": [
+        "asset",
+        "optimize",
+        "Bear CMS"
+    ],
+    "homepage": "https://github.com/bearcms/asset-optimizer-addon",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bear CMS",
+            "email": "support@bearcms.com",
+            "homepage": "https://bearcms.com/"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "bearcms/bearframework-addon": ">=1.4.1 <2.0"
+    },
+    "autoload": {
+        "files": [
+            "autoload.php"
+        ]
+    }
+}

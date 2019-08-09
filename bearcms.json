@@ -1,0 +1,17 @@
+{
+    "id": "bearcms/asset-optimizer-addon",
+    "name": "Asset optimizer",
+    "description": "Images are usually the biggest resource your website needs and with this addon you can optimize them and make them load faster.",
+    "author": {
+        "name": "Bear CMS",
+        "email": "support@bearcms.com",
+        "url": "https://bearcms.com/"
+    },
+    "media": [
+        {
+            "filename": "/assets/1.png",
+            "width": 1890,
+            "height": 1404
+        }
+    ]
+}
