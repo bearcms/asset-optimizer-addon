@@ -1,7 +1,7 @@
 {
     "id": "bearcms/asset-optimizer-addon",
     "name": "Asset optimizer",
-    "description": "Images are usually the biggest resource your website needs and with this addon you can optimize them and make them load faster.",
+    "description": "Images are usually the biggest resource your website needs and with this addon, you can optimize them and make them load faster. The image quality is automatically selected and all metadata is stripped, decreasing significantly the download size and improving website loading times. When optimizing an image, a copy of the original file is securely sent to a service managed by the Bear CMS team. It's stored only while optimizations are running and then deleted. The service is available for free (for Bear CMS Pro) and provides 500MB of image optimizations each month.",
     "author": {
         "name": "Bear CMS",
         "email": "support@bearcms.com",
