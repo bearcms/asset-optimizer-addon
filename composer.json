@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
+        "php": "7.1.*|7.2.*|7.3.*|7.4.*|8.0.*",
         "bearcms/bearframework-addon": ">=1.4.1 <2.0"
     },
     "autoload": {
