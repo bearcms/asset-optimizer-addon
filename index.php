@@ -87,17 +87,18 @@ $app->bearCMS->addons
                             $responseIsOk = false;
                             $response = curl_exec($ch);
                             $headerSize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+                            $error = (string)curl_error($ch);
                             curl_close($ch);
                             if ($response !== false) { // not an error
-                                $headers = substr($response, 0, $headerSize);
+                                $headers = strtolower(substr($response, 0, $headerSize));
                                 $body = substr($response, $headerSize);
 
                                 $matches = null;
-                                preg_match('/X\-Optimizer\-Result\:(.*)/', $headers, $matches);
+                                preg_match('/x\-optimizer\-result\:(.*)/', $headers, $matches);
                                 $optimizationResult = isset($matches[1]) ? trim($matches[1]) : 'unknown';
 
                                 $matches = null;
-                                preg_match('/X\-Optimizer\-Details\:(.*)/', $headers, $matches);
+                                preg_match('/x\-optimizer\-details\:(.*)/', $headers, $matches);
                                 $optimizationDetails = isset($matches[1]) ? trim($matches[1]) : '';
 
                                 if ($optimizationResult === 'ok') {
@@ -118,7 +119,7 @@ $app->bearCMS->addons
                                 $details->returnValue = $optimizedFilename;
                             } else {
                                 file_put_contents($optimizedFilename, date('Ymd')); // date unavailable
-                                $logResult('unavailable');
+                                $logResult('unavailable', $response . ', error: ' . $error);
                             }
                         }
                     }
