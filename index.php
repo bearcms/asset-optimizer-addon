@@ -22,6 +22,9 @@ $app->bearCMS->addons
             $app->assets
                 ->addEventListener('prepare', function (\BearFramework\App\Assets\PrepareEventDetails $details) use ($app, $limit, $quality) {
                     $originalFilename = $details->returnValue;
+                    if ($originalFilename === null) {
+                        return;
+                    }
                     $extension = strtolower(pathinfo($originalFilename, PATHINFO_EXTENSION));
                     if (array_search($extension, ['png', 'jpg', 'jpeg', 'gif']) !== false) {
                         $tempDir = 'appdata://.temp/asset-optimizer/';
