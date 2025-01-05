@@ -13,14 +13,14 @@ use BearCMS\Addons\Addon;
 $app = App::get();
 
 $app->bearCMS->addons
-    ->register('bearcms/asset-optimizer-addon', function (Addon $addon) use ($app) {
-        $addon->initialize = function () use ($app) {
+    ->register('bearcms/asset-optimizer-addon', function (Addon $addon) use ($app): void {
+        $addon->initialize = function () use ($app): void {
 
             $limit = 1024 * 1024 * 500; // 500MB
             $quality = 'auto';
 
             $app->assets
-                ->addEventListener('prepare', function (\BearFramework\App\Assets\PrepareEventDetails $details) use ($app, $limit, $quality) {
+                ->addEventListener('prepare', function (\BearFramework\App\Assets\PrepareEventDetails $details) use ($app, $limit, $quality): void {
                     $originalFilename = $details->returnValue;
                     if ($originalFilename === null) {
                         return;
@@ -52,7 +52,7 @@ $app->bearCMS->addons
                         $monthKey = date('Ym');
                         $usageDataKey = 'bearcms-asset-optimizer/' . $monthKey . '.usage';
 
-                        $logResult = function (string $status, string $info = '') use ($app, $details, $originalFilename, $optimizedFilename, $monthKey, $usageDataKey) {
+                        $logResult = function (string $status, string $info = '') use ($app, $details, $originalFilename, $optimizedFilename, $monthKey, $usageDataKey): void {
                             $data = [
                                 'status' => $status,
                                 'info' => $info,
